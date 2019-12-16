@@ -370,8 +370,8 @@
                 }
 
                 if (e && e.type === 'mousedown' && this.visible) {
-                    e.preventDefault();
-                    e.stopPropagation();
+                    // e.preventDefault();
+                    // e.stopPropagation();
                     return;
                 }
 
@@ -380,8 +380,8 @@
                     if (e && pickerPanel && pickerPanel.contains(e.target)) return; // its a click inside own component, lets ignore it.
 
                     this.visible = false;
-                    e && e.preventDefault();
-                    e && e.stopPropagation();
+                    // e && e.preventDefault();
+                    // e && e.stopPropagation();
                     this.$emit('on-clickoutside', e);
                     return;
                 }
@@ -403,7 +403,7 @@
                     return;
                 }
                 if (this.visible) {
-                    e.preventDefault();
+                    // e.preventDefault();
                     return;
                 }
 
