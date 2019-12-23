@@ -89,11 +89,34 @@
                 if (!field) { throw new Error('[iView warn]: must call validateField with valid prop string!'); }
 
                 field.validate('', cb);
+            },
+            validationUpdate(callback) {
+                return new Promise(resolve => {
+                    let valid = true;
+                    let count = 0;
+                    this.fields.forEach(field => {
+                        if (field.validateState === '') {
+                            return;
+                        }
+                        field.validate('', errors => {
+                            if (errors) {
+                                valid = false;
+                            }
+                            if (++count === this.fields.length) {
+                                // all finish
+                                resolve(valid);
+                                if (typeof callback === 'function') {
+                                    callback(valid);
+                                }
+                            }
+                        });
+                    });
+                });
             }
         },
         watch: {
             rules() {
-                this.validate();
+                this.validationUpdate();
             }
         },
         created () {
