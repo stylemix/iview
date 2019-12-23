@@ -91,11 +91,11 @@
                 field.validate('', cb);
             }
         },
-        watch: {
-            rules() {
-                this.validate();
-            }
-        },
+        // watch: {
+        //     rules() {
+        //         this.validate();
+        //     }
+        // },
         created () {
             this.$on('on-form-item-add', (field) => {
                 if (field) this.fields.push(field);
