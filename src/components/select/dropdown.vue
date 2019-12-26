@@ -1,5 +1,7 @@
 <template>
-    <div class="ivu-select-dropdown" :class="className" :style="styles"><slot></slot></div>
+    <div :class="wrapperClass">
+        <div class="ivu-select-dropdown" :class="className" :style="styles"><slot></slot></div>
+    </div>
 </template>
 <script>
     import Vue from 'vue';
@@ -39,6 +41,9 @@
                 if (this.transfer) style['z-index'] = 1060 + this.tIndex;
 
                 return style;
+            },
+            wrapperClass () {
+                return this.$IVIEW.dropdownWrapper;
             }
         },
         methods: {

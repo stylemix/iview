@@ -223,7 +223,8 @@ const install = function(Vue, opts = {}) {
         },
         modal: {
             maskClosable: opts.modal ? 'maskClosable' in opts.modal ? opts.modal.maskClosable : '' : ''
-        }
+        },
+        dropdownWrapper: 'dropdownWrapper' in opts ? opts.dropdownWrapper : ''
     };
 
     Vue.prototype.$Loading = LoadingBar;
