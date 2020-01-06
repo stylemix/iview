@@ -13,7 +13,10 @@ Notification.newInstance = properties => {
     });
 
     const component = Instance.$mount();
-    document.body.appendChild(component.$el);
+
+    const wrapper = document.querySelector('.at-widget-booking');
+    wrapper.appendChild(component.$el);
+
     const notification = Instance.$children[0];
 
     return {
